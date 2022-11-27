@@ -3,5 +3,8 @@
     "cSpell.enableFiletypes": [
         "csv",
         "django-html"
+    ],
+    "cSpell.words": [
+        "endfor"
     ]
 }
