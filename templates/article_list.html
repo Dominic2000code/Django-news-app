@@ -9,7 +9,7 @@
             <h3 class="font-weight-bold"> {{article.title}} </h3>
             <span class="text-muted">by {{article.author}} | {{article.date}} </span>
             <div class="card-body">
-                {{article.body}}
+                {{article.body|truncatechars:250}}
             </div>
             <div class="card-footer text-center text-muted">
                 <a href=" {% url 'article_edit' article.pk %} ">Edit</a>
