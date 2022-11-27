@@ -10,16 +10,24 @@
                 <h3 class="font-weight-bold"> {{article.title}} </h3>
             </a>
             <span class="text-muted">by {{article.author}} | {{article.date}} </span>
-            <div class="card-body">
-                {{article.body|truncatechars:250}}
-            </div>
-            {% if request.user == article.author %}
-            <div class="card-footer text-center text-muted">
-                <a href=" {% url 'article_edit' article.pk %} ">Edit</a>
-                |
-                <a href=" {% url 'article_delete' article.pk%} ">Delete</a>
-            </div>
-            {% endif %}
+        </div>
+        <div class="card-body">
+            {{article.body|truncatechars:250}}
+            <p>
+                {% if request.user == article.author %}
+                    <a href=" {% url 'article_edit' article.pk %} ">Edit</a>
+                    |
+                    <a href=" {% url 'article_delete' article.pk%} ">Delete</a>
+                {% endif %}
+            </p>
+        </div>
+        <div class="card-footer">
+            {% for comment in article.comments.all %}
+            <p>
+                <span class="font-wight-bold"> {{comment.author}} &middot; </span>
+                {{comment}}
+            </p>
+            {% endfor %}
         </div>
     </div>
     <br/>
