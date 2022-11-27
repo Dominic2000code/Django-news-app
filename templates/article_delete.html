@@ -8,5 +8,7 @@
     {% csrf_token %}
     <p>Are you sure you want to delete "{{articles.title}}"?</p>
     <button type="submit" class="btn btn-danger ml-2">Confirm</button>
+    <button type="submit" class="btn btn-secondary ml-2" onClick="window.history.back();return false;" >Cancel</button>
+    
 </form>
 {% endblock content %}
